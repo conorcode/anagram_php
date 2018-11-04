@@ -10,13 +10,18 @@ function runLoop($str1, $str2) {
     foreach (str_split($str1) as $value) {
         $arr[$value] = ($arr[$value] ?? 0) + 1;
     }
-    
-    print_r($arr);
+    foreach (str_split($str2) as $value) {
+        if (!array_key_exists($value, $arr) || !$arr[$value]) return false;
+        $arr[$value]--;
+    }    
+
     return true;
     
 }
 
-$str1 = 'testst';
-$str2 = 'esettt';
-
-var_dump(runLoop($str1, $str2));
+var_dump(runLoop('test', 'eset'));
+var_dump(runLoop('test', 'eser'));
+var_dump(runLoop('testr', 'eser'));
+var_dump(runLoop('test', 'fert'));
+var_dump(runLoop('tefr', 'fert'));
+var_dump(runLoop('tefr', ''));
