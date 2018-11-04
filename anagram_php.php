@@ -8,7 +8,7 @@ function runLoop($str1, $str2) {
     $arr = [];
     
     foreach (str_split($str1) as $value) {
-        $arr[$value] = isset($arr[$value]) ? $arr[$value]++ : 1; 
+        $arr[$value] = ($arr[$value] ?? 0) + 1;
     }
     
     print_r($arr);
@@ -16,7 +16,7 @@ function runLoop($str1, $str2) {
     
 }
 
-$str1 = 'test';
-$str2 = 'eset';
+$str1 = 'testst';
+$str2 = 'esettt';
 
 var_dump(runLoop($str1, $str2));
